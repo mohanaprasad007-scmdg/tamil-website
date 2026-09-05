@@ -1,17 +1,157 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tamil History</title>
+    <title>Tamil History - தமிழ்</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #06152e, #0b5261);
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 8px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .subtitle {
+            font-size: 17px;
+            white-space: nowrap;
+            margin-bottom: 35px;
+            letter-spacing: 0.5px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.13);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 28px;
+            margin: 22px auto;
+            border-radius: 24px;
+            max-width: 800px;
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,0.35),
+                inset 0 1px 1px rgba(255,255,255,0.2);
+
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.5);
+        }
+
+        .icon {
+            font-size: 42px;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            margin: 5px 0 12px;
+            font-size: 25px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 28px;
+            background: white;
+            color: #0b5261;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            .subtitle {
+                font-size: 13px;
+            }
+
+            .card {
+                padding: 22px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<h1>📚 Tamil History</h1>
+<div class="container">
 
-<p>Tamil history is one of the oldest and richest cultural histories in the world. The Tamil people have a long tradition of literature, art, architecture, trade, and learning. Ancient Tamil kingdoms such as the Cheras, Cholas, and Pandyas played an important role in the history of South India.</p>
+    <h1>📜 Tamil History</h1>
 
-<p>Ancient Tamil literature, especially Sangam literature, gives us valuable information about the life, society, nature, and traditions of Tamil people. Tamil history continues to inspire people through its language, culture, and heritage.</p>
+    <div class="subtitle">
+        Kings • Literature • Heritage • Trade • Art • Architecture • Legacy
+    </div>
 
-<a href="index.html">← Back to Home</a>
+    <div class="card">
+        <div class="icon">👑</div>
+        <h2>Ancient Tamil Kingdoms</h2>
+        <p>
+            Ancient Tamil kingdoms such as the Cheras, Cholas and Pandyas
+            played an important role in the history of South India.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="icon">📖</div>
+        <h2>Sangam Literature</h2>
+        <p>
+            Sangam literature provides valuable information about Tamil
+            society, nature, traditions, relationships and everyday life.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="icon">🚢</div>
+        <h2>Trade & Maritime Heritage</h2>
+        <p>
+            Tamil regions developed important trade connections with
+            different parts of India and the wider world.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="icon">🏛️</div>
+        <h2>Art & Architecture</h2>
+        <p>
+            Temples, sculptures, inscriptions and traditional arts
+            continue to showcase the richness of Tamil heritage.
+        </p>
+    </div>
+
+    <a class="btn" href="index.html">← Back to Home</a>
+
+</div>
 
 </body>
 </html>
