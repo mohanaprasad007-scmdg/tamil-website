@@ -1,21 +1,157 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tamil People Life</title>
+    <title>Tamil People Life - தமிழ்</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #06152e, #0b5261);
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 8px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .subtitle {
+            font-size: 17px;
+            white-space: nowrap;
+            margin-bottom: 35px;
+            letter-spacing: 0.5px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.13);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 28px;
+            margin: 22px auto;
+            border-radius: 24px;
+            max-width: 800px;
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,0.35),
+                inset 0 1px 1px rgba(255,255,255,0.2);
+
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.5);
+        }
+
+        .icon {
+            font-size: 42px;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            margin: 5px 0 12px;
+            font-size: 25px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 28px;
+            background: white;
+            color: #0b5261;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            .subtitle {
+                font-size: 13px;
+            }
+
+            .card {
+                padding: 22px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<h1>💡 Tamil People Life</h1>
+<div class="container">
 
-<p>Tamil people have a rich and diverse way of life shaped by language, family, traditions, and community values. Family relationships and respect for elders have traditionally played an important role in Tamil society.</p>
+    <h1>💡 Tamil People Life</h1>
 
-<p>Traditional village life is closely connected with agriculture and nature. Farming, cattle, local festivals, and community celebrations have been important parts of rural Tamil life.</p>
+    <div class="subtitle">
+        People • Family • Traditions • Culture • Community • Values • Heritage
+    </div>
 
-<p>Today, Tamil people live across different parts of India and around the world. They continue to preserve their language and traditions while adapting to modern education, technology, careers, and lifestyles.</p>
+    <div class="card">
+        <div class="icon">👨‍👩‍👧</div>
+        <h2>Family & Values</h2>
+        <p>
+            Tamil people have a rich way of life shaped by language,
+            family, traditions and community values.
+        </p>
+    </div>
 
- <p>Hospitality, hard work, education, and respect for others are values that are often celebrated in Tamil literature and cultural traditions.</p>   
-    
-<a href="index.html">← Back to Home</a>
+    <div class="card">
+        <div class="icon">🌾</div>
+        <h2>Traditional Village Life</h2>
+        <p>
+            Agriculture, cattle, nature, festivals and community
+            celebrations have been important parts of Tamil village life.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="icon">🌍</div>
+        <h2>Tamils Around The World</h2>
+        <p>
+            Tamil people live across India and around the world,
+            preserving their language and traditions while embracing modern life.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="icon">❤️</div>
+        <h2>Tamil Values</h2>
+        <p>
+            Hospitality, education, hard work, respect and kindness
+            are values celebrated in Tamil traditions and literature.
+        </p>
+    </div>
+
+    <a class="btn" href="index.html">← Back to Home</a>
+
+</div>
 
 </body>
 </html>
