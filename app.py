@@ -11,17 +11,15 @@ ideas = [
     {"title":"📚 Learning Idea","message":"Learn one new Python concept and build a tiny program."}
 ]
 
-@app.get("/")
+@app.route("/")
 def home():
     return send_from_directory(".", "index.html")
 
-@app.get("/<page>")
-def html_page(page):
-    if page.endswith(".html"):
-        return send_from_directory(".", page)
-    return "Not Found", 404
+@app.route("/<path:filename>")
+def files(filename):
+    return send_from_directory(".", filename)
 
-@app.get("/api/explore")
+@app.route("/api/explore")
 def explore():
     return jsonify(random.choice(ideas))
 
