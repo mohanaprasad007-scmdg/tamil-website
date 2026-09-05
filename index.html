@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ta">
 
 <head>
@@ -30,6 +30,7 @@ body{
     overflow-x:hidden;
 }
 
+
 /* =========================
    BACKGROUND
 ========================= */
@@ -60,8 +61,9 @@ body::after{
     pointer-events:none;
 }
 
+
 /* =========================
-   NAVBAR
+   NAVIGATION
 ========================= */
 
 nav{
@@ -79,6 +81,7 @@ nav{
 
     background:rgba(2,11,28,.35);
     backdrop-filter:blur(15px);
+
     border-bottom:1px solid rgba(255,255,255,.08);
 }
 
@@ -86,46 +89,43 @@ nav{
     font-size:28px;
     font-weight:bold;
     color:#5ee7ff;
-    letter-spacing:1px;
 }
 
 .nav-links{
     display:flex;
-    gap:32px;
     align-items:center;
+    gap:30px;
 }
 
 .nav-links a{
     color:#e8f8ff;
     text-decoration:none;
-    font-size:16px;
     transition:.3s;
 }
 
 .nav-links a:hover{
-    color:#58e7ff;
+    color:#55e7ff;
 }
 
 .nav-btn{
     padding:11px 20px;
     border:1px solid #55e7ff;
     border-radius:30px;
-    color:#fff !important;
 }
+
 
 /* =========================
    HERO
 ========================= */
 
 .hero{
-    min-height:650px;
-    padding:170px 8% 100px;
+    min-height:680px;
+    padding:170px 7% 100px;
 
     position:relative;
     overflow:hidden;
 
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
@@ -133,30 +133,6 @@ nav{
     background:
         radial-gradient(circle at 80% 30%,rgba(0,255,220,.25),transparent 30%),
         linear-gradient(135deg,#061536,#082b55,#006c70);
-}
-
-/* Decorative circles */
-
-.hero::before{
-    content:"";
-    position:absolute;
-    width:450px;
-    height:450px;
-    border-radius:50%;
-    border:1px solid rgba(80,230,255,.18);
-    right:-100px;
-    top:100px;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    width:650px;
-    height:650px;
-    border-radius:50%;
-    border:1px solid rgba(80,230,255,.08);
-    right:-200px;
-    top:0;
 }
 
 .hero-content{
@@ -169,8 +145,7 @@ nav{
     color:#5deaff;
     letter-spacing:6px;
     font-size:14px;
-    margin-bottom:28px;
-    text-transform:uppercase;
+    margin-bottom:25px;
 }
 
 .quote-mark{
@@ -185,7 +160,6 @@ nav{
     font-size:clamp(38px,6vw,72px);
     line-height:1.35;
     font-weight:800;
-    text-shadow:0 5px 30px rgba(0,0,0,.3);
 }
 
 .hero h1 span{
@@ -195,7 +169,6 @@ nav{
 .divider{
     display:flex;
     align-items:center;
-    justify-content:center;
     gap:15px;
     margin:30px auto;
     max-width:500px;
@@ -234,31 +207,37 @@ nav{
     display:inline-block;
     padding:17px 34px;
     border-radius:40px;
+
     background:linear-gradient(135deg,#69eaff,#35d1ef);
     color:#031225;
+
     text-decoration:none;
     font-weight:bold;
-    font-size:17px;
+
     box-shadow:0 10px 35px rgba(48,220,255,.3);
+
     transition:.3s;
 }
 
 .main-btn:hover{
     transform:translateY(-5px) scale(1.03);
-    box-shadow:0 15px 45px rgba(48,220,255,.5);
 }
 
+
 /* =========================
-   FLOATING PARTICLES
+   PARTICLES
 ========================= */
 
 .particle{
     position:absolute;
     width:5px;
     height:5px;
+
     background:#62eaff;
     border-radius:50%;
+
     opacity:.6;
+
     animation:float 6s infinite ease-in-out;
 }
 
@@ -269,13 +248,195 @@ nav{
 .p5{top:35%;right:8%;animation-delay:4s;}
 
 @keyframes float{
+
     0%,100%{
         transform:translateY(0);
     }
+
     50%{
         transform:translateY(-25px);
     }
+
 }
+
+
+/* =========================
+   AI SECTION
+========================= */
+
+.ai-section{
+    padding:90px 7%;
+
+    background:
+        radial-gradient(circle at 20% 50%,rgba(0,220,255,.12),transparent 30%),
+        radial-gradient(circle at 80% 50%,rgba(0,255,180,.08),transparent 30%),
+        #020b1c;
+}
+
+.ai-card{
+    max-width:900px;
+    margin:auto;
+    padding:50px 35px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.10),
+            rgba(255,255,255,.025)
+        );
+
+    border:1px solid rgba(70,225,255,.35);
+    border-radius:30px;
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.4),
+        inset 0 1px rgba(255,255,255,.1);
+}
+
+.ai-icon{
+    width:80px;
+    height:80px;
+
+    margin:0 auto 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    font-size:42px;
+
+    background:rgba(60,220,255,.10);
+    border:1px solid rgba(80,225,255,.4);
+
+    box-shadow:0 0 35px rgba(50,220,255,.15);
+}
+
+.ai-badge{
+    display:inline-block;
+
+    padding:7px 16px;
+    margin-bottom:15px;
+
+    border-radius:30px;
+
+    font-size:12px;
+    letter-spacing:3px;
+
+    color:#55e5ff;
+
+    background:rgba(50,220,255,.08);
+    border:1px solid rgba(50,220,255,.2);
+}
+
+.ai-card h2{
+    font-family:Georgia,serif;
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.ai-card h2 span{
+    color:#55e5ff;
+}
+
+.ai-card > p{
+    max-width:650px;
+    margin:0 auto 30px;
+
+    color:#9fb8ca;
+    font-size:17px;
+    line-height:1.7;
+}
+
+.ai-input-area{
+    max-width:750px;
+    margin:auto;
+
+    display:flex;
+    gap:12px;
+
+    padding:8px;
+
+    background:rgba(0,0,0,.25);
+
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+}
+
+.ai-input-area input{
+    flex:1;
+    min-width:0;
+
+    padding:16px 18px;
+
+    border:0;
+    outline:none;
+
+    background:transparent;
+    color:white;
+
+    font-size:16px;
+}
+
+.ai-input-area input::placeholder{
+    color:#7893a6;
+}
+
+.ai-input-area button{
+    border:0;
+    border-radius:14px;
+
+    padding:0 25px;
+
+    background:linear-gradient(135deg,#5ee8ff,#36cde8);
+
+    color:#031225;
+
+    font-weight:bold;
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.ai-input-area button:hover{
+    transform:scale(1.04);
+}
+
+.ai-input-area button:disabled{
+    opacity:.6;
+    cursor:wait;
+}
+
+.ai-answer{
+    max-width:750px;
+    margin:25px auto 0;
+
+    min-height:70px;
+
+    padding:20px;
+
+    text-align:left;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.045);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:#c8e5f1;
+
+    line-height:1.8;
+
+    white-space:pre-wrap;
+}
+
 
 /* =========================
    CARDS
@@ -292,11 +453,13 @@ nav{
 
     display:grid;
     grid-template-columns:repeat(3,1fr);
+
     gap:25px;
 }
 
 .card{
     position:relative;
+
     padding:35px 30px;
     min-height:250px;
 
@@ -304,13 +467,15 @@ nav{
     color:white;
 
     border:1px solid rgba(80,220,255,.25);
+
     border-radius:25px;
 
-    background:linear-gradient(
-        145deg,
-        rgba(255,255,255,.08),
-        rgba(255,255,255,.025)
-    );
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.08),
+            rgba(255,255,255,.025)
+        );
 
     backdrop-filter:blur(15px);
 
@@ -319,41 +484,33 @@ nav{
         0 20px 50px rgba(0,0,0,.25);
 
     transition:.4s;
-    overflow:hidden;
-}
 
-.card::before{
-    content:"";
-    position:absolute;
-    width:150px;
-    height:150px;
-    border-radius:50%;
-    background:#00d9ff;
-    filter:blur(80px);
-    opacity:.12;
-    right:-50px;
-    top:-50px;
+    overflow:hidden;
 }
 
 .card:hover{
     transform:translateY(-12px);
+
     border-color:#43ddff;
+
     box-shadow:
-        0 25px 60px rgba(0,210,255,.15),
-        inset 0 1px rgba(255,255,255,.12);
+        0 25px 60px rgba(0,210,255,.15);
 }
 
 .card-icon{
     width:65px;
     height:65px;
+
     display:flex;
     align-items:center;
     justify-content:center;
 
     border-radius:50%;
+
     border:2px solid #48dcff;
 
     font-size:30px;
+
     margin-bottom:25px;
 
     background:rgba(50,220,255,.08);
@@ -386,6 +543,7 @@ nav{
 
 .arrow{
     position:absolute;
+
     right:25px;
     bottom:25px;
 
@@ -397,10 +555,12 @@ nav{
     justify-content:center;
 
     border:1px solid rgba(90,220,255,.4);
+
     border-radius:50%;
 
     font-size:22px;
 }
+
 
 /* =========================
    EXPLORE
@@ -408,7 +568,9 @@ nav{
 
 .explore-section{
     padding:90px 7%;
+
     text-align:center;
+
     background:
         radial-gradient(circle at center,rgba(0,160,190,.12),transparent 45%),
         #020b1c;
@@ -428,7 +590,9 @@ nav{
 
 .start-btn{
     display:inline-block;
+
     padding:16px 30px;
+
     border-radius:40px;
 
     background:white;
@@ -446,22 +610,25 @@ nav{
 
 #result{
     max-width:600px;
+
     margin:25px auto 0;
+
     padding:18px;
 
     border-radius:15px;
+
     background:rgba(255,255,255,.06);
+
     color:#c9e7f3;
 }
 
+
 /* =========================
-   TAMIL SAYING
+   QUOTE
 ========================= */
 
 .quote-section{
-    position:relative;
     padding:100px 7%;
-    overflow:hidden;
 
     background:
         radial-gradient(circle at center,rgba(0,220,255,.12),transparent 40%),
@@ -470,12 +637,15 @@ nav{
 
 .quote-card{
     max-width:850px;
+
     margin:auto;
+
     padding:60px 40px;
 
     text-align:center;
 
     border-radius:30px;
+
     border:1px solid rgba(76,220,255,.45);
 
     background:
@@ -488,8 +658,7 @@ nav{
     backdrop-filter:blur(20px);
 
     box-shadow:
-        0 30px 80px rgba(0,0,0,.4),
-        inset 0 1px rgba(255,255,255,.08);
+        0 30px 80px rgba(0,0,0,.4);
 }
 
 .book-icon{
@@ -511,8 +680,8 @@ nav{
 
 .tamil-quote .highlight{
     color:#51e5ff;
-    font-size:1.1em;
 }
+
 
 /* =========================
    FOOTER
@@ -526,6 +695,7 @@ footer{
     justify-content:space-between;
 
     background:#010817;
+
     border-top:1px solid rgba(255,255,255,.08);
 
     color:#8199aa;
@@ -535,10 +705,6 @@ footer{
     color:#52e4ff;
     font-size:25px;
     font-weight:bold;
-}
-
-.footer-center{
-    text-align:center;
 }
 
 .social{
@@ -555,10 +721,12 @@ footer{
     justify-content:center;
 
     border:1px solid rgba(255,255,255,.15);
+
     border-radius:50%;
 
     color:white;
 }
+
 
 /* =========================
    MOBILE
@@ -600,8 +768,28 @@ footer{
         padding:55px 6%;
     }
 
-    .explore-section h2{
+    .ai-section{
+        padding:60px 5%;
+    }
+
+    .ai-card{
+        padding:40px 18px;
+    }
+
+    .ai-card h2{
         font-size:32px;
+    }
+
+    .ai-input-area{
+        flex-direction:column;
+    }
+
+    .ai-input-area input{
+        width:100%;
+    }
+
+    .ai-input-area button{
+        min-height:50px;
     }
 
     .quote-section{
@@ -619,6 +807,7 @@ footer{
     footer{
         flex-direction:column;
         gap:20px;
+        text-align:center;
     }
 
 }
@@ -628,6 +817,7 @@ footer{
 
 
 <body>
+
 
 <!-- =========================
      NAVIGATION
@@ -648,6 +838,8 @@ footer{
         <a href="culture.html">Culture</a>
 
         <a href="people.html">People</a>
+
+        <a href="#tamil-ai">AI</a>
 
         <a href="explore.html" class="nav-btn">
             Explore →
@@ -707,8 +899,8 @@ footer{
 
         <div class="hero-buttons">
 
-            <a href="explore.html" class="main-btn">
-                Explore Now →
+            <a href="#tamil-ai" class="main-btn">
+                Ask Tamil AI →
             </a>
 
         </div>
@@ -719,6 +911,58 @@ footer{
 
 
 <!-- =========================
+     AI TAMIL ASSISTANT
+========================= -->
+
+<section class="ai-section" id="tamil-ai">
+
+    <div class="ai-card">
+
+        <div class="ai-icon">
+            🤖
+        </div>
+
+        <div class="ai-badge">
+            ✨ TAMIL AI
+        </div>
+
+        <h2>
+            Ask <span>Tamil AI</span>
+        </h2>
+
+        <p>
+            Ask anything about Tamil history, culture,
+            literature, language and heritage.
+        </p>
+
+        <div class="ai-input-area">
+
+            <input
+                id="aiQuestion"
+                type="text"
+                placeholder="தமிழ் பற்றி கேளுங்கள்... / Ask about Tamil..."
+                maxlength="1000"
+            >
+
+            <button
+                id="aiButton"
+                onclick="askTamilAI()"
+            >
+                Ask AI ✨
+            </button>
+
+        </div>
+
+        <div id="aiAnswer" class="ai-answer">
+            🤖 Your AI answer will appear here...
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
      THREE MAIN CARDS
 ========================= -->
 
@@ -726,8 +970,6 @@ footer{
 
     <div class="cards">
 
-
-        <!-- HISTORY -->
 
         <a href="history.html" class="card">
 
@@ -756,8 +998,6 @@ footer{
         </a>
 
 
-        <!-- CULTURE -->
-
         <a href="culture.html" class="card">
 
             <div class="card-icon">
@@ -784,8 +1024,6 @@ footer{
 
         </a>
 
-
-        <!-- PEOPLE -->
 
         <a href="people.html" class="card">
 
@@ -819,7 +1057,7 @@ footer{
 
 
 <!-- =========================
-     EXPLORE SECTION
+     EXPLORE
 ========================= -->
 
 <section class="explore-section">
@@ -893,7 +1131,7 @@ footer{
         ✦ தமிழ்
     </div>
 
-    <div class="footer-center">
+    <div>
         © 2026 தமிழ் &nbsp; | &nbsp;
         Discover • Learn • Preserve
     </div>
@@ -909,10 +1147,136 @@ footer{
 
 
 <!-- =========================
-     BACKEND
+     JAVASCRIPT
 ========================= -->
 
 <script>
+
+
+/* =========================
+   AI CHAT
+========================= */
+
+async function askTamilAI(){
+
+    const input =
+        document.getElementById("aiQuestion");
+
+    const answer =
+        document.getElementById("aiAnswer");
+
+    const button =
+        document.getElementById("aiButton");
+
+
+    const question =
+        input.value.trim();
+
+
+    if(!question){
+
+        answer.innerHTML =
+            "🤖 Please enter a question.";
+
+        input.focus();
+
+        return;
+
+    }
+
+
+    button.disabled = true;
+
+    button.innerText =
+        "Thinking...";
+
+
+    answer.innerHTML =
+        "🤖 Tamil AI is thinking...";
+
+
+    try{
+
+        const response =
+            await fetch("/api/ai",{
+
+                method:"POST",
+
+                headers:{
+                    "Content-Type":"application/json"
+                },
+
+                body:JSON.stringify({
+
+                    message:question
+
+                })
+
+            });
+
+
+        const data =
+            await response.json();
+
+
+        if(data.success){
+
+            answer.innerHTML =
+                "🤖 " +
+                data.answer;
+
+        }
+
+        else{
+
+            answer.innerHTML =
+                "⚠️ " +
+                (data.error ||
+                "Something went wrong.");
+
+        }
+
+    }
+
+    catch(error){
+
+        answer.innerHTML =
+            "⚠️ Unable to connect to Tamil AI. Please try again.";
+
+    }
+
+
+    button.disabled = false;
+
+    button.innerText =
+        "Ask AI ✨";
+
+}
+
+
+/* =========================
+   ENTER KEY
+========================= */
+
+document
+.getElementById("aiQuestion")
+.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            askTamilAI();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   EXPLORE BACKEND
+========================= */
 
 async function startExploring(){
 
@@ -922,6 +1286,7 @@ async function startExploring(){
     result.innerHTML =
         "✨ Finding something for you...";
 
+
     try{
 
         const response =
@@ -930,25 +1295,9 @@ async function startExploring(){
         const data =
             await response.json();
 
+
         result.innerHTML =
             "<b>" +
             data.title +
             "</b><br>" +
-            data.message;
-
-    }
-
-    catch(error){
-
-        result.innerHTML =
-            "Backend is not running.";
-
-    }
-
-}
-
-</script>
-
-
-</body>
-</html>          
+  
