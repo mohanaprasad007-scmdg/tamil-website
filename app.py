@@ -1,24 +1,10 @@
 from flask import Flask, jsonify, request, send_from_directory
-from openai import OpenAI
 import random
 import os
 
 app = Flask(__name__)
 
-# ==============================
-# OPENAI CONFIGURATION
-# ==============================
-
-client = OpenAI(
-    api_key=os.environ.get("OPENAI_API_KEY")
-)
-
 MODEL = "gpt-5.6-luna"
-
-
-# ==============================
-# TAMIL WEBSITE CONTENT
-# ==============================
 
 ideas = [
     {
@@ -44,39 +30,36 @@ ideas = [
 ]
 
 
-# ==============================
+# =========================
 # HOME PAGE
-# ==============================
+# =========================
 
 @app.route("/")
 def home():
     return send_from_directory(".", "index.html")
 
 
-# ==============================
-# STATIC FILES / OTHER PAGES
-# ==============================
+# =========================
+# OTHER FILES / PAGES
+# =========================
 
 @app.route("/<path:filename>")
 def files(filename):
     return send_from_directory(".", filename)
 
 
-# ==============================
+# =========================
 # EXPLORE API
-# ==============================
+# =========================
 
 @app.route("/api/explore")
 def explore():
-
-    return jsonify(
-        random.choice(ideas)
-    )
+    return jsonify(random.choice(ideas))
 
 
-# ==============================
+# =========================
 # AI TAMIL ASSISTANT
-# ==============================
+# =========================
 
 @app.route("/api/ai", methods=["POST"])
 def ai_assistant():
@@ -89,34 +72,36 @@ def ai_assistant():
             data.get("message", "")
         ).strip()
 
-        # Basic protection against huge requests
         if not message:
-
             return jsonify({
                 "success": False,
                 "error": "Please enter a question."
             }), 400
 
         if len(message) > 1000:
-
             return jsonify({
                 "success": False,
                 "error": "Please keep your question under 1000 characters."
             }), 400
 
 
-        # Make sure API key exists
-        if not os.environ.get("OPENAI_API_KEY"):
+        # Check API key only when AI is requested
+        api_key = os.environ.get("OPENAI_API_KEY")
 
+        if not api_key:
             return jsonify({
                 "success": False,
-                "error": "AI service is not configured."
+                "error": "AI service is not configured on the server."
             }), 500
 
 
-        # ==============================
-        # AI PERSONALITY
-        # ==============================
+        # Import OpenAI only when needed
+        from openai import OpenAI
+
+        client = OpenAI(
+            api_key=api_key
+        )
+
 
         instructions = """
 You are Tamil AI Assistant, the friendly AI guide
@@ -154,18 +139,10 @@ Rules:
 """
 
 
-        # ==============================
-        # OPENAI RESPONSE
-        # ==============================
-
         response = client.responses.create(
-
             model=MODEL,
-
             instructions=instructions,
-
             input=message,
-
             max_output_tokens=600
         )
 
@@ -174,7 +151,6 @@ Rules:
 
 
         if not answer:
-
             answer = "மன்னிக்கவும். பதில் கிடைக்கவில்லை."
 
 
@@ -194,9 +170,9 @@ Rules:
         }), 500
 
 
-# ==============================
+# =========================
 # HEALTH CHECK
-# ==============================
+# =========================
 
 @app.route("/api/health")
 def health():
@@ -209,9 +185,9 @@ def health():
     })
 
 
-# ==============================
-# RUN SERVER
-# ==============================
+# =========================
+# START SERVER
+# =========================
 
 if __name__ == "__main__":
 
@@ -221,4 +197,4 @@ if __name__ == "__main__":
             os.environ.get("PORT", 5000)
         ),
         debug=False
-    )
+        )
