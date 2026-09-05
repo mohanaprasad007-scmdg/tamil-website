@@ -4,7 +4,9 @@ body{margin:0;font-family:Arial;background:#0b1020;color:white}nav{padding:22px 
 <nav><div class="logo">✦ தமிழ்</div></nav>
 <header class="hero"><h1>அகர முதல எழுத்தெல்லாம் ஆதி<br>பகவன் முதற்றே உலகு.</h1><p>Discover ideas, learn skills and find inspiration.</p><a class="btn" href="#explore">Explore</a></header>
 <div class="cards"><a href="history.html" class="card"><h2>📚 Tamil history</h2><p>🏛️ தமிழர் வரலாறு</p></a><a href="culture.html" class="card"><h2>🏛️ Tamil Culture</h2><p>Explore </p>🪘 தமிழர் பாரம்பரிய கலைகள்</a><a href="people.html" class="card"><h2>💡 Tamil people life</h2><p></p>🌾 தமிழர் பாரம்பரிய வாழ்க்கை</a></div>
-<section id="explore"><h2>Ready to explore?</h2><button class="btn" onclick="startExploring()">Start Exploring</button><div id="result"></div></section>
+<section id="explore"><h2>Ready to explore?</h2><a class="btn" href="explore.html">⭐ Start Exploring</a>
+<div id="result"></div>
+</section>
 <footer>© 2026 தமிழ்</footer>
 <script>
 async function startExploring(){const r=document.getElementById('result');r.textContent='Finding something for you...';try{const x=await fetch('/api/explore');const d=await x.json();r.innerHTML='<b>'+d.title+'</b><br>'+d.message}catch(e){r.textContent='Backend is not running.'}}
