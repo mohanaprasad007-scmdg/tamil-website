@@ -1098,6 +1098,7 @@ footer{
 
     <div class="footer-logo">
         ✦ தமிழ்
+     
     </div>
 
     <div>
@@ -1107,3 +1108,67 @@ footer{
 
     <div>
         ▶ &nbsp; ◎ &nbsp; 𝕏
+        <script>
+async function askTamilAI() {
+    const input = document.getElementById("aiQuestion");
+    const answer = document.getElementById("aiAnswer");
+    const button = document.getElementById("aiButton");
+
+    const question = input.value.trim();
+
+    if (!question) {
+        answer.textContent = "🤖 Please enter a question.";
+        input.focus();
+        return;
+    }
+
+    button.disabled = true;
+    button.textContent = "Thinking...";
+    answer.textContent = "🤖 Tamil AI is thinking...";
+
+    try {
+        const response = await fetch("/api/ai", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                message: question
+            })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            answer.textContent = "🤖 " + data.answer;
+        } else {
+            answer.textContent =
+                "⚠️ " + (data.error || "Something went wrong.");
+        }
+
+    } catch (error) {
+        answer.textContent =
+            "⚠️ Unable to connect to Tamil AI.";
+    }
+
+    button.disabled = false;
+    button.textContent = "Ask AI ✨";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.getElementById("aiButton")
+        .addEventListener("click", askTamilAI);
+
+    document.getElementById("aiQuestion")
+        .addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                askTamilAI();
+            }
+        });
+
+});
+</script>
+
+</body>
+    </html>
