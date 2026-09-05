@@ -1,205 +1,838 @@
-<!doctype html>
-<html lang="en">
+  <!DOCTYPE html>
+<html lang="ta">
 
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>தமிழ்</title>
+<title>தமிழ் | Tamil Heritage</title>
 
 <style>
 
-body{
+/* =========================
+   RESET
+========================= */
+
+*{
     margin:0;
-    font-family:Arial,sans-serif;
-    background:#0b1020;
-    color:white;
+    padding:0;
+    box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,"Noto Sans Tamil",sans-serif;
+    background:#020b1c;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#00d9ff;
+    filter:blur(180px);
+    opacity:.12;
+    top:-150px;
+    right:-150px;
+    pointer-events:none;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:450px;
+    height:450px;
+    background:#00ffb7;
+    filter:blur(180px);
+    opacity:.08;
+    bottom:-150px;
+    left:-150px;
+    pointer-events:none;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
 nav{
-    padding:22px 8%;
-    background:#111831;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:20;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:22px 7%;
+
+    background:rgba(2,11,28,.35);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .logo{
-    font-size:25px;
+    font-size:28px;
     font-weight:bold;
-    color:#7dd3fc;
+    color:#5ee7ff;
+    letter-spacing:1px;
 }
+
+.nav-links{
+    display:flex;
+    gap:32px;
+    align-items:center;
+}
+
+.nav-links a{
+    color:#e8f8ff;
+    text-decoration:none;
+    font-size:16px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#58e7ff;
+}
+
+.nav-btn{
+    padding:11px 20px;
+    border:1px solid #55e7ff;
+    border-radius:30px;
+    color:#fff !important;
+}
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
-    padding:100px 8%;
-    background:linear-gradient(135deg,#111831,#172554,#0f766e);
+    min-height:650px;
+    padding:170px 8% 100px;
+
+    position:relative;
+    overflow:hidden;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    background:
+        radial-gradient(circle at 80% 30%,rgba(0,255,220,.25),transparent 30%),
+        linear-gradient(135deg,#061536,#082b55,#006c70);
 }
 
-h1{
-    font-size:60px;
-    max-width:700px;
+/* Decorative circles */
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+    border-radius:50%;
+    border:1px solid rgba(80,230,255,.18);
+    right:-100px;
+    top:100px;
 }
 
-.hero p{
-    font-size:20px;
-    color:#dbeafe;
+.hero::after{
+    content:"";
+    position:absolute;
+    width:650px;
+    height:650px;
+    border-radius:50%;
+    border:1px solid rgba(80,230,255,.08);
+    right:-200px;
+    top:0;
+}
+
+.hero-content{
+    position:relative;
+    z-index:3;
+    max-width:1000px;
+}
+
+.eyebrow{
+    color:#5deaff;
+    letter-spacing:6px;
+    font-size:14px;
+    margin-bottom:28px;
+    text-transform:uppercase;
+}
+
+.quote-mark{
+    font-size:80px;
+    color:#62dfff;
+    opacity:.35;
+    line-height:.5;
+}
+
+.hero h1{
+    margin-top:25px;
+    font-size:clamp(38px,6vw,72px);
+    line-height:1.35;
+    font-weight:800;
+    text-shadow:0 5px 30px rgba(0,0,0,.3);
+}
+
+.hero h1 span{
+    color:#55e6ff;
+}
+
+.divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    margin:30px auto;
+    max-width:500px;
+}
+
+.divider::before,
+.divider::after{
+    content:"";
+    height:1px;
+    flex:1;
+    background:linear-gradient(90deg,transparent,#42dcff);
+}
+
+.divider::after{
+    background:linear-gradient(90deg,#42dcff,transparent);
+}
+
+.divider-icon{
+    color:#5ceaff;
+    font-size:25px;
+}
+
+.hero-description{
     max-width:650px;
+    margin:auto;
+    color:#c7dff0;
+    font-size:18px;
+    line-height:1.8;
 }
 
-.btn{
+.hero-buttons{
+    margin-top:35px;
+}
+
+.main-btn{
     display:inline-block;
-    padding:14px 24px;
-    border:0;
-    border-radius:10px;
-    font-weight:bold;
-    cursor:pointer;
+    padding:17px 34px;
+    border-radius:40px;
+    background:linear-gradient(135deg,#69eaff,#35d1ef);
+    color:#031225;
     text-decoration:none;
-    background:white;
-    color:#111831;
+    font-weight:bold;
+    font-size:17px;
+    box-shadow:0 10px 35px rgba(48,220,255,.3);
+    transition:.3s;
+}
+
+.main-btn:hover{
+    transform:translateY(-5px) scale(1.03);
+    box-shadow:0 15px 45px rgba(48,220,255,.5);
+}
+
+/* =========================
+   FLOATING PARTICLES
+========================= */
+
+.particle{
+    position:absolute;
+    width:5px;
+    height:5px;
+    background:#62eaff;
+    border-radius:50%;
+    opacity:.6;
+    animation:float 6s infinite ease-in-out;
+}
+
+.p1{top:25%;left:12%;}
+.p2{top:45%;left:25%;animation-delay:1s;}
+.p3{top:20%;right:25%;animation-delay:2s;}
+.p4{top:65%;right:12%;animation-delay:3s;}
+.p5{top:35%;right:8%;animation-delay:4s;}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-25px);
+    }
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.cards-section{
+    padding:80px 7%;
+    background:#020b1c;
 }
 
 .cards{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-    padding:40px 8%;
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
 }
 
 .card{
-    background:#151d38;
-    padding:25px;
-    border-radius:16px;
-    flex:1;
-    min-width:200px;
-    color:white;
+    position:relative;
+    padding:35px 30px;
+    min-height:250px;
+
     text-decoration:none;
+    color:white;
+
+    border:1px solid rgba(80,220,255,.25);
+    border-radius:25px;
+
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.025)
+    );
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.08),
+        0 20px 50px rgba(0,0,0,.25);
+
+    transition:.4s;
+    overflow:hidden;
 }
 
-section{
-    padding:70px 8%;
+.card::before{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    background:#00d9ff;
+    filter:blur(80px);
+    opacity:.12;
+    right:-50px;
+    top:-50px;
+}
+
+.card:hover{
+    transform:translateY(-12px);
+    border-color:#43ddff;
+    box-shadow:
+        0 25px 60px rgba(0,210,255,.15),
+        inset 0 1px rgba(255,255,255,.12);
+}
+
+.card-icon{
+    width:65px;
+    height:65px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+    border:2px solid #48dcff;
+
+    font-size:30px;
+    margin-bottom:25px;
+
+    background:rgba(50,220,255,.08);
+}
+
+.card:nth-child(2) .card-icon{
+    border-color:#ffc34d;
+}
+
+.card:nth-child(3) .card-icon{
+    border-color:#54ed9a;
+}
+
+.card h2{
+    font-family:Georgia,serif;
+    font-size:25px;
+    margin-bottom:10px;
+}
+
+.card .tamil{
+    color:#bcecff;
+    font-size:17px;
+    margin-bottom:18px;
+}
+
+.card p{
+    color:#9eb8cc;
+    line-height:1.7;
+}
+
+.arrow{
+    position:absolute;
+    right:25px;
+    bottom:25px;
+
+    width:40px;
+    height:40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid rgba(90,220,255,.4);
+    border-radius:50%;
+
+    font-size:22px;
+}
+
+/* =========================
+   EXPLORE
+========================= */
+
+.explore-section{
+    padding:90px 7%;
+    text-align:center;
+    background:
+        radial-gradient(circle at center,rgba(0,160,190,.12),transparent 45%),
+        #020b1c;
+}
+
+.explore-section h2{
+    font-family:Georgia,serif;
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.explore-section p{
+    color:#91adc1;
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+.start-btn{
+    display:inline-block;
+    padding:16px 30px;
+    border-radius:40px;
+
+    background:white;
+    color:#07152e;
+
+    text-decoration:none;
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.start-btn:hover{
+    transform:scale(1.05);
 }
 
 #result{
-    margin-top:20px;
-    padding:18px;
-    background:#ffffff18;
-    border-radius:12px;
     max-width:600px;
+    margin:25px auto 0;
+    padding:18px;
+
+    border-radius:15px;
+    background:rgba(255,255,255,.06);
+    color:#c9e7f3;
 }
 
-/* Tamil Quote */
+/* =========================
+   TAMIL SAYING
+========================= */
 
 .quote-section{
-    padding:80px 8%;
-    text-align:center;
-    background:#0b1020;
+    position:relative;
+    padding:100px 7%;
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at center,rgba(0,220,255,.12),transparent 40%),
+        #020b1c;
 }
 
 .quote-card{
     max-width:850px;
     margin:auto;
-    padding:45px 25px;
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.15);
+    padding:60px 40px;
+
+    text-align:center;
+
     border-radius:30px;
-    box-shadow:0 20px 50px rgba(0,0,0,0.4);
-    backdrop-filter:blur(12px);
+    border:1px solid rgba(76,220,255,.45);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.09),
+            rgba(255,255,255,.025)
+        );
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.4),
+        inset 0 1px rgba(255,255,255,.08);
 }
 
 .book-icon{
-    font-size:65px;
-    margin-bottom:20px;
+    font-size:60px;
+    margin-bottom:25px;
+}
+
+.quote-divider{
+    color:#55e5ff;
+    font-size:25px;
+    margin:20px 0;
 }
 
 .tamil-quote{
-    font-size:30px;
+    font-size:clamp(24px,4vw,36px);
     line-height:1.8;
     font-weight:bold;
-    text-align:center;
 }
 
-.quote-line{
-    margin-top:30px;
-    font-size:30px;
-    letter-spacing:15px;
+.tamil-quote .highlight{
+    color:#51e5ff;
+    font-size:1.1em;
 }
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-    text-align:center;
-    padding:25px;
-    background:#080d1a;
-    color:#9aa8c0;
+    padding:35px 7%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    background:#010817;
+    border-top:1px solid rgba(255,255,255,.08);
+
+    color:#8199aa;
 }
 
-@media(max-width:600px){
+.footer-logo{
+    color:#52e4ff;
+    font-size:25px;
+    font-weight:bold;
+}
 
-    h1{
+.footer-center{
+    text-align:center;
+}
+
+.social{
+    display:flex;
+    gap:15px;
+}
+
+.social span{
+    width:38px;
+    height:38px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:50%;
+
+    color:white;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+    nav{
+        padding:18px 5%;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        min-height:620px;
+        padding:140px 6% 80px;
+    }
+
+    .eyebrow{
+        font-size:11px;
+        letter-spacing:3px;
+    }
+
+    .hero h1{
         font-size:38px;
     }
 
-    .hero p{
-        font-size:17px;
+    .hero-description{
+        font-size:16px;
     }
 
-    .tamil-quote{
-        font-size:22px;
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .cards-section{
+        padding:55px 6%;
+    }
+
+    .explore-section h2{
+        font-size:32px;
+    }
+
+    .quote-section{
+        padding:60px 6%;
     }
 
     .quote-card{
-        padding:35px 15px;
+        padding:45px 20px;
+    }
+
+    .tamil-quote{
+        font-size:23px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:20px;
     }
 
 }
 
 </style>
-
 </head>
+
 
 <body>
 
+<!-- =========================
+     NAVIGATION
+========================= -->
+
 <nav>
-    <div class="logo">✦ தமிழ்</div>
+
+    <div class="logo">
+        ✦ தமிழ்
+    </div>
+
+    <div class="nav-links">
+
+        <a href="#home">Home</a>
+
+        <a href="history.html">History</a>
+
+        <a href="culture.html">Culture</a>
+
+        <a href="people.html">People</a>
+
+        <a href="explore.html" class="nav-btn">
+            Explore →
+        </a>
+
+    </div>
+
 </nav>
 
-<header class="hero">
 
-    <h1>
-        அகர முதல எழுத்தெல்லாம் ஆதி<br>
-        பகவன் முதற்றே உலகு.
-    </h1>
+<!-- =========================
+     HERO
+========================= -->
 
-    <p>
-        Discover ideas, learn skills and find inspiration.
-    </p>
+<header class="hero" id="home">
 
-    <a class="btn" href="#explore">
-        Explore
-    </a>
+    <div class="particle p1"></div>
+    <div class="particle p2"></div>
+    <div class="particle p3"></div>
+    <div class="particle p4"></div>
+    <div class="particle p5"></div>
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            TAMIL HERITAGE • TAMIL PRIDE
+        </div>
+
+        <div class="quote-mark">
+            “
+        </div>
+
+        <h1>
+
+            அகர முதல எழுத்தெல்லாம் ஆதி<br>
+
+            <span>
+                பகவன் முதற்றே உலகு.
+            </span>
+
+        </h1>
+
+        <div class="divider">
+
+            <span class="divider-icon">
+                ❧
+            </span>
+
+        </div>
+
+        <p class="hero-description">
+
+            The foundation of all letters is 'A',
+            for it is the first cause of the world.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="explore.html" class="main-btn">
+                Explore Now →
+            </a>
+
+        </div>
+
+    </div>
 
 </header>
 
-<div class="cards">
 
-    <a href="history.html" class="card">
-        <h2>📚 Tamil history</h2>
-        <p>🏛️ தமிழர் வரலாறு</p>
-    </a>
+<!-- =========================
+     THREE MAIN CARDS
+========================= -->
 
-    <a href="culture.html" class="card">
-        <h2>🏛️ Tamil Culture</h2>
-        <p>Explore</p>
-        <p>🪘 தமிழர் பாரம்பரிய கலைகள்</p>
-    </a>
+<section class="cards-section">
 
-    <a href="people.html" class="card">
-        <h2>💡 Tamil people life</h2>
-        <p>🌾 தமிழர் பாரம்பரிய வாழ்க்கை</p>
-    </a>
+    <div class="cards">
 
-</div>
 
-<section id="explore">
+        <!-- HISTORY -->
 
-    <h2>Ready to explore?</h2>
+        <a href="history.html" class="card">
 
-    <a class="btn" href="explore.html">
+            <div class="card-icon">
+                📖
+            </div>
+
+            <h2>
+                Tamil History
+            </h2>
+
+            <div class="tamil">
+                தமிழர் வரலாறு
+            </div>
+
+            <p>
+                Explore the glorious history
+                of Tamil civilization, kingdoms,
+                literature and heritage.
+            </p>
+
+            <div class="arrow">
+                →
+            </div>
+
+        </a>
+
+
+        <!-- CULTURE -->
+
+        <a href="culture.html" class="card">
+
+            <div class="card-icon">
+                🏛️
+            </div>
+
+            <h2>
+                Tamil Culture
+            </h2>
+
+            <div class="tamil">
+                தமிழர் பாரம்பரிய கலைகள்
+            </div>
+
+            <p>
+                Discover our rich traditions,
+                festivals, arts, music, food
+                and cultural values.
+            </p>
+
+            <div class="arrow">
+                →
+            </div>
+
+        </a>
+
+
+        <!-- PEOPLE -->
+
+        <a href="people.html" class="card">
+
+            <div class="card-icon">
+                🌿
+            </div>
+
+            <h2>
+                Tamil People Life
+            </h2>
+
+            <div class="tamil">
+                தமிழர் பாரம்பரிய வாழ்க்கை
+            </div>
+
+            <p>
+                Learn about the lifestyle,
+                wisdom, family and everyday
+                life of Tamil people.
+            </p>
+
+            <div class="arrow">
+                →
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EXPLORE SECTION
+========================= -->
+
+<section class="explore-section">
+
+    <h2>
+        Ready to explore?
+    </h2>
+
+    <p>
+        Let's learn, explore and take pride in our Tamil heritage!
+    </p>
+
+    <a href="explore.html" class="start-btn">
         ⭐ Start Exploring
     </a>
 
@@ -207,7 +840,10 @@ footer{
 
 </section>
 
-<!-- Tamil Saying -->
+
+<!-- =========================
+     TAMIL SAYING
+========================= -->
 
 <section class="quote-section">
 
@@ -217,47 +853,95 @@ footer{
             📖
         </div>
 
-        <p class="tamil-quote">
-            உலகத்தில் ஏழு<br>
-            அதிசயங்கள் உள்ளது<br>
-            என்று சொல்கிறார்கள்...<br>
-            எனக்கு ஒரே அதிசயம்<br>
-            என் தமிழ் மொழி<br>
-            மட்டுமே!
-        </p>
+        <div class="quote-divider">
+            ─── ❧ ───
+        </div>
 
-        <div class="quote-line">
-            ✦
+        <div class="tamil-quote">
+
+            உலகத்தில் ஏழு<br>
+
+            அதிசயங்கள் உள்ளது<br>
+
+            என்று சொல்கிறார்கள்...<br>
+
+            எனக்கு ஒரே அதிசயம்<br>
+
+            <span class="highlight">
+                என் தமிழ் மொழி<br>
+                மட்டுமே!
+            </span>
+
+        </div>
+
+        <div class="quote-divider">
+            ─── ❧ ───
         </div>
 
     </div>
 
 </section>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
-    © 2026 தமிழ்
+
+    <div class="footer-logo">
+        ✦ தமிழ்
+    </div>
+
+    <div class="footer-center">
+        © 2026 தமிழ் &nbsp; | &nbsp;
+        Discover • Learn • Preserve
+    </div>
+
+    <div class="social">
+        <span>▶</span>
+        <span>◎</span>
+        <span>𝕏</span>
+        <span>◉</span>
+    </div>
+
 </footer>
+
+
+<!-- =========================
+     BACKEND
+========================= -->
 
 <script>
 
 async function startExploring(){
 
-    const r=document.getElementById('result');
+    const result =
+        document.getElementById("result");
 
-    r.textContent='Finding something for you...';
+    result.innerHTML =
+        "✨ Finding something for you...";
 
     try{
 
-        const x=await fetch('/api/explore');
-        const d=await x.json();
+        const response =
+            await fetch("/api/explore");
 
-        r.innerHTML='<b>'+d.title+'</b><br>'+d.message;
+        const data =
+            await response.json();
+
+        result.innerHTML =
+            "<b>" +
+            data.title +
+            "</b><br>" +
+            data.message;
 
     }
 
-    catch(e){
+    catch(error){
 
-        r.textContent='Backend is not running.';
+        result.innerHTML =
+            "Backend is not running.";
 
     }
 
@@ -265,5 +949,6 @@ async function startExploring(){
 
 </script>
 
+
 </body>
-</html>
+</html>          
